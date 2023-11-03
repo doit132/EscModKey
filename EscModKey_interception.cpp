@@ -88,7 +88,7 @@ DWORD WINAPI releaseLCtrlKeyState(LPVOID lpParam)
 {
 	(void)lpParam;
 
-	short count_lctrl = 0;
+	volatile short count_lctrl = 0;
 	while (1) {
 		if (phy_LCtrl_pressed == PHY_KEY_DOWN) {
 			// printf("phy_ctrl is down\n");
@@ -118,7 +118,7 @@ DWORD WINAPI releaseLShiftKeyState(LPVOID lpParam)
 {
 	(void)lpParam;
 
-	short count_lshift = 0;
+	volatile short count_lshift = 0;
 	while (1) {
 		if (phy_LShift_pressed == PHY_KEY_DOWN) {
 			// printf("phy_lshift is down\n");
@@ -149,7 +149,7 @@ DWORD WINAPI releaseLAltKeyState(LPVOID lpParam)
 {
 	(void)lpParam;
 
-	short count_lalt = 0;
+	volatile short count_lalt = 0;
 	while (1) {
 		if (phy_LAlt_pressed == PHY_KEY_DOWN) {
 			// printf("phy_alt is down\n");
@@ -180,7 +180,7 @@ DWORD WINAPI releaseLWinKeyState(LPVOID lpParam)
 {
 	(void)lpParam;
 
-	short count_lwin = 0;
+	volatile short count_lwin = 0;
 	while (1) {
 		if (phy_LWin_pressed == PHY_KEY_DOWN) {
 			Sleep(250);
