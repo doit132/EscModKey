@@ -106,11 +106,10 @@ DWORD WINAPI releaseLCtrlKeyState(LPVOID lpParam)
 			}
 		}
 		if (count_lctrl == 10) {
-			std::cout << "lctrl will releaseL" << std::endl;
-			count_lctrl = 0;
+			// std::cout << "lctrl will releaseL" << std::endl;
 			keybd_event(VK_LCONTROL, 0, KEYEVENTF_KEYUP, 0);
 		}
-
+		count_lctrl = 0;
 		Sleep(250);
 	}
 }
@@ -138,11 +137,10 @@ DWORD WINAPI releaseLShiftKeyState(LPVOID lpParam)
 			}
 		}
 		if (count_lshift == 10) {
-			std::cout << "lshift will releaseL" << std::endl;
-			count_lshift = 0;
+			// std::cout << "lshift will releaseL" << std::endl;
 			keybd_event(VK_LSHIFT, 0, KEYEVENTF_KEYUP, 0);
 		}
-
+		count_lshift = 0;
 		Sleep(250);
 	}
 }
@@ -170,11 +168,10 @@ DWORD WINAPI releaseLAltKeyState(LPVOID lpParam)
 			}
 		}
 		if (count_lalt == 10) {
-			std::cout << "alt will releaseL" << std::endl;
-			count_lalt = 0;
+			// std::cout << "alt will releaseL" << std::endl;
 			keybd_event(VK_LMENU, 0, KEYEVENTF_KEYUP, 0);
 		}
-
+		count_lalt = 0;
 		Sleep(250);
 	}
 }
@@ -201,11 +198,10 @@ DWORD WINAPI releaseLWinKeyState(LPVOID lpParam)
 			}
 		}
 		if (count_lwin == 10) {
-			std::cout << "lwin will releaseL" << std::endl;
-			count_lwin = 0;
+			// std::cout << "lwin will releaseL" << std::endl;
 			keybd_event(VK_LWIN, 0, KEYEVENTF_KEYUP, 0);
 		}
-
+		count_lwin = 0;
 		Sleep(250);
 	}
 }
