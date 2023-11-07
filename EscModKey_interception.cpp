@@ -92,7 +92,7 @@ DWORD WINAPI releaseLCtrlKeyState(LPVOID lpParam)
 	while (1) {
 		if (phy_LCtrl_pressed == PHY_KEY_DOWN) {
 			// printf("phy_ctrl is down\n");
-			Sleep(250);
+			Sleep(100);
 			continue;
 		}
 		// 这里使用 count_lctrl 做次数控制, 是因为如果使用纯软件做按键模拟, 那么物理按键一定是 PHY_KEY_UP 状态
@@ -110,7 +110,7 @@ DWORD WINAPI releaseLCtrlKeyState(LPVOID lpParam)
 			keybd_event(VK_LCONTROL, 0, KEYEVENTF_KEYUP, 0);
 		}
 		count_lctrl = 0;
-		Sleep(250);
+		Sleep(100);
 	}
 }
 
@@ -122,7 +122,7 @@ DWORD WINAPI releaseLShiftKeyState(LPVOID lpParam)
 	while (1) {
 		if (phy_LShift_pressed == PHY_KEY_DOWN) {
 			// printf("phy_lshift is down\n");
-			Sleep(250);
+			Sleep(100);
 			continue;
 		}
 
@@ -141,7 +141,7 @@ DWORD WINAPI releaseLShiftKeyState(LPVOID lpParam)
 			keybd_event(VK_LSHIFT, 0, KEYEVENTF_KEYUP, 0);
 		}
 		count_lshift = 0;
-		Sleep(250);
+		Sleep(100);
 	}
 }
 
@@ -153,7 +153,7 @@ DWORD WINAPI releaseLAltKeyState(LPVOID lpParam)
 	while (1) {
 		if (phy_LAlt_pressed == PHY_KEY_DOWN) {
 			// printf("phy_alt is down\n");
-			Sleep(250);
+			Sleep(100);
 			continue;
 		}
 
@@ -172,7 +172,7 @@ DWORD WINAPI releaseLAltKeyState(LPVOID lpParam)
 			keybd_event(VK_LMENU, 0, KEYEVENTF_KEYUP, 0);
 		}
 		count_lalt = 0;
-		Sleep(250);
+		Sleep(100);
 	}
 }
 
@@ -183,7 +183,7 @@ DWORD WINAPI releaseLWinKeyState(LPVOID lpParam)
 	volatile short count_lwin = 0;
 	while (1) {
 		if (phy_LWin_pressed == PHY_KEY_DOWN) {
-			Sleep(250);
+			Sleep(100);
 			continue;
 		}
 
@@ -202,7 +202,7 @@ DWORD WINAPI releaseLWinKeyState(LPVOID lpParam)
 			keybd_event(VK_LWIN, 0, KEYEVENTF_KEYUP, 0);
 		}
 		count_lwin = 0;
-		Sleep(250);
+		Sleep(100);
 	}
 }
 // ### 多线程函数 end
