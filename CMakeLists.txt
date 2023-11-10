@@ -1,24 +1,12 @@
-cmake_minimum_required (VERSION 3.2)
+cmake_minimum_required(VERSION 3.2)
 
-project (demo)
+project(demo)
 
-set (EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
-
-set (SRC_LIST
-    ${PROJECT_SOURCE_DIR}/src/EscModKey_interception.cpp
-    ${PROJECT_SOURCE_DIR}/src/utils.cpp)
-
-include_directories(${PROJECT_SOURCE_DIR}/include)
-link_directories(${PROJECT_SOURCE_DIR}/lib)
-
-file(COPY ${PROJECT_SOURCE_DIR}/lib/interception.dll DESTINATION ${EXECUTABLE_OUTPUT_PATH})
-
-# find_library: 在指定目录下查找指定库，并把库的绝对路径存放到变量里，其第一个参数是变量名称，第二个参数是库名称，第三个参数是 HINTS，第 4 个参数是路径，其它用法可以参考 cmake 文档
-# 使用 find_library 的好处是在执行 cmake … 时就会去查找库是否存在，这样可以提前发现错误，不用等到链接时
-# find_library 只能找到静态库吗, 为什么只有 dll 的时候找不到, 是还需要设置什么吗?
-find_library(INTERCEPTION_LIB interception ${PROJECT_SOURCE_DIR}/lib)
-
-add_executable (EscModKey_interception ${SRC_LIST})
-
-#  target_link_libraries: 把目标文件与库文件进行链接
-target_link_libraries (EscModKey_interception ${INTERCEPTION_LIB})
+# add_subdirectory：这个语句的作用是增加编译子目录, 其基本语法格式是：
+# add_subdirectory(source_dir [binary_dir] [EXCLUDE_FROM_ALL])
+# source_dir: 指定一个包含 CMakeLists.txt 和代码文件所在的目录, 该目录可以是绝对路径, 也可以是相对路径, 对于后者相对路径的起点是 CMAKE_CURRENT_SOURCE_DIR, 此外, 如果子目录再次包含的 CMakeLists.txt, 则将继续处理里层的 CMakeLists.txt, 而不是继续处理当前源代码
+# binary_dir: 二进制代码目录
+# 这个目录是可选的, 如果指定, cmake 命令执行后的输出文件将会存放在此处, 若没有指定, 默认情况等于 source_dir 没有进行相对路径计算前的路径, 也就是 CMAKE_BINARY_DIR
+# EXCLUDE_FROM_ALL 标记
+# 这个标志是可选的, 如果传递了该参数表示新增加的子目录将会排除在 ALL 目录之外（可能是 make 系统中的 make all？）, 表示这个目录将从 IDE 的工程中排除, 用户必须显式在子文件这个编译目标（手动 cmake 之类的）, 指定了这个文件夹, 表示这个文件夹是独立于源工程的，这些函数是有用但是不是必要的
+add_subdirectory(src)
