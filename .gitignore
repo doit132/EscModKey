@@ -1,3 +1,6 @@
-UnitTest/
+projects/UnitTest/
+projects/*/build/
 build/
-
+projects/*/.cache/
+.cache/
+compile_commands.json

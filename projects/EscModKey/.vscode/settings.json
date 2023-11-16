@@ -55,12 +55,13 @@
         "string.h": "c",
         "utils.h": "c"
     },
-    "files.exclude": {
-        "**/.cache": true,
-        ".clang-format": true,
-        "compile_commands.json": true
-    },
-    "cmake.configureOnOpen": false,
+    "cmake.configureOnOpen": true,
     "cmake.generator": "MinGW Makefiles",
     "cmake.sourceDirectory": "D:/Users/Documents/MyData/CodeLearning/c_cpp/EscModKey_vscode/projects/EscModKey",
+    "search.exclude": {
+        // "**/.git": true,
+        "**/*.md": true,
+        "build": true,
+        ".cache": true,
+    },
 }
