@@ -60,6 +60,31 @@
         ".clang-format": true,
         // "compile_commands.json": true
     },
+    "clangd.detectExtensionConflicts": true,
+    "clangd.arguments": [
+        // 编译器路径, 可以方便的查到编译器相关的一些参数和头文件等, 如果不设置
+        // 默认就跑到 D:/Programs/Microsoft Visual Studio_2022/Professional/VC/Tools/MSVC/14.34.31933/include 文件夹下找文件了
+        "--query-driver=D:/Programs2/w64devkit/bin/g++.exe",
+        // compile-commands.json文件所在路径
+        "--compile-commands-dir=${workspaceFolder}",
+        // 如果没有加入头文件, 而使用了相关函数, 那么会自动插入头文件, 设置成never那么不自动插入
+        "--header-insertion=never",
+        // 同时开启的任务数量
+        "-j=12",
+        // 全局补全（会自动补充头文件）
+        "--all-scopes-completion",
+        // 更详细的补全内容
+        "--completion-style=detailed",
+        // 更详细的补全内容
+        "--completion-style=detailed",
+        // 在后台自动分析文件（基于complie_commands)
+        "--background-index",
+        // 对所编写代码进行一个静态分析, 查查有什么错误, 不规范的写法
+        "--clang-tidy",
+        // pch 优化的位置
+        "--pch-storage=disk"
+    ],
+    "clangd.serverCompletionRanking": true,
     "cmake.configureOnOpen": false,
     "cmake.generator": "MinGW Makefiles",
     "cmake.sourceDirectory": "D:/Users/Documents/MyData/CodeLearning/c_cpp/EscModKey_vscode/projects/EscModKey",
