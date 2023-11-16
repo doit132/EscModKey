@@ -159,12 +159,15 @@ void INTERCEPTION_API interception_destroy_context(InterceptionContext context);
 InterceptionPrecedence INTERCEPTION_API interception_get_precedence(InterceptionContext context,
 								    InterceptionDevice device);
 
-void INTERCEPTION_API interception_set_precedence(InterceptionContext context, InterceptionDevice device,
+void INTERCEPTION_API interception_set_precedence(InterceptionContext context,
+						  InterceptionDevice device,
 						  InterceptionPrecedence precedence);
 
-InterceptionFilter INTERCEPTION_API interception_get_filter(InterceptionContext context, InterceptionDevice device);
+InterceptionFilter INTERCEPTION_API interception_get_filter(InterceptionContext context,
+							    InterceptionDevice device);
 
-void INTERCEPTION_API interception_set_filter(InterceptionContext context, InterceptionPredicate predicate,
+void INTERCEPTION_API interception_set_filter(InterceptionContext context,
+					      InterceptionPredicate predicate,
 					      InterceptionFilter filter);
 
 InterceptionDevice INTERCEPTION_API interception_wait(InterceptionContext context);
@@ -178,8 +181,10 @@ int INTERCEPTION_API interception_send(InterceptionContext context, Interception
 int INTERCEPTION_API interception_receive(InterceptionContext context, InterceptionDevice device,
 					  InterceptionStroke *stroke, unsigned int nstroke);
 
-unsigned int INTERCEPTION_API interception_get_hardware_id(InterceptionContext context, InterceptionDevice device,
-							   void *hardware_id_buffer, unsigned int buffer_size);
+unsigned int INTERCEPTION_API interception_get_hardware_id(InterceptionContext context,
+							   InterceptionDevice device,
+							   void *hardware_id_buffer,
+							   unsigned int buffer_size);
 
 int INTERCEPTION_API interception_is_invalid(InterceptionDevice device);
 
