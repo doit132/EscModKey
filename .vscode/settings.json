@@ -64,7 +64,7 @@
     "clangd.arguments": [
         // 编译器路径, 可以方便的查到编译器相关的一些参数和头文件等, 如果不设置
         // 默认就跑到 D:/Programs/Microsoft Visual Studio_2022/Professional/VC/Tools/MSVC/14.34.31933/include 文件夹下找文件了
-        "--query-driver=D:/Programs2/w64devkit/bin/g++.exe",
+        "--query-driver=D:/Programs2/mingw_posix_seh/bin/g++.exe",
         // compile-commands.json文件所在路径
         "--compile-commands-dir=${workspaceFolder}",
         // 如果没有加入头文件, 而使用了相关函数, 那么会自动插入头文件, 设置成never那么不自动插入

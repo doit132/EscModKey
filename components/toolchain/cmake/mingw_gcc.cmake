@@ -5,8 +5,8 @@ MESSAGE(STATUS ${MESSAGE_SEPARATOR} ${MESSAGE_SEPARATOR})
 MESSAGE(STATUS "set cross compile toolchain in ${CMAKE_HOST_SYSTEM_NAME} platform")
 
 # 包含gcc头文件路径
-SET(SYSTEM_PATH "-ID:/Programs2/w64devkit/x86_64-w64-mingw32/include")
-set(CROSS_COMPILE_PREFIX D:/Programs2/w64devkit/bin/)
+SET(SYSTEM_PATH "-ID:/Programs2/mingw_posix_seh/x86_64-w64-mingw32/include")
+set(CROSS_COMPILE_PREFIX D:/Programs2/mingw_posix_seh/bin/)
 
 IF(CMAKE_HOST_SYSTEM_NAME MATCHES "Windows")
     SET(CMAKE_C_COMPILER "${CROSS_COMPILE_PREFIX}gcc.exe")
