@@ -102,7 +102,7 @@ SET(USER_SOURCE
 
 # 定义连接器参数； --gc-sections：指示链接器去掉不用的 section
 SET(CMAKE_EXE_LINKER_FLAGS
-    "${CMAKE_EXE_LINKER_FLAGS} -Wl,--gc-sections,--print-memory-usage"
+    "${CMAKE_EXE_LINKER_FLAGS}"
 )
 
 # 生成可执行文件

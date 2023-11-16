@@ -5,8 +5,8 @@ MESSAGE(STATUS ${MESSAGE_SEPARATOR} ${MESSAGE_SEPARATOR})
 MESSAGE(STATUS "set cross compile toolchain in ${CMAKE_HOST_SYSTEM_NAME} platform")
 
 # 包含gcc头文件路径
-SET(SYSTEM_PATH "-ID:\\Programs2\\mingw_posix_seh\\x86_64-w64-mingw32\\include")
-set(CROSS_COMPILE_PREFIX )
+SET(SYSTEM_PATH "-ID:/Programs2/w64devkit/x86_64-w64-mingw32/include")
+set(CROSS_COMPILE_PREFIX D:/Programs2/w64devkit/bin/)
 
 IF(CMAKE_HOST_SYSTEM_NAME MATCHES "Windows")
     SET(CMAKE_C_COMPILER "${CROSS_COMPILE_PREFIX}gcc.exe")
@@ -43,7 +43,7 @@ SET(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
 
 # 定义通用编译器参数; ${MCPU_FLAGS} 处理器内核信息 ${VFP_FLAGS} 浮点运算单元类型 ${SYSTEM_PATH} 编译器头文件路径
 SET(CFCOMMON
-    "${SYSTEM_PATH} -Wall -fmessage-length=0 -ffunction-sections -fdata-sections"
+    "${SYSTEM_PATH} -Wall"
 )
 
 # 设置默认构建类型为Debug

@@ -58,7 +58,7 @@
     "files.exclude": {
         "**/.cache": true,
         ".clang-format": true,
-        "compile_commands.json": true
+        // "compile_commands.json": true
     },
     "cmake.configureOnOpen": false,
     "cmake.generator": "MinGW Makefiles",
