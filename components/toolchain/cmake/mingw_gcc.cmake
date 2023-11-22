@@ -1,5 +1,7 @@
 # 编译工具链; 请确保已经添加到环境变量;
 # 如果使用的是 linux 环境, 需要将后面的 '.exe' 移除;
+set(CMAKE_HOST_SYSTEM_NAME "Windows")
+
 set(MESSAGE_SEPARATOR "------------------------------------------------------")
 MESSAGE(STATUS ${MESSAGE_SEPARATOR} ${MESSAGE_SEPARATOR})
 MESSAGE(STATUS "set cross compile toolchain in ${CMAKE_HOST_SYSTEM_NAME} platform")
