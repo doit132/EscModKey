@@ -264,13 +264,14 @@ DWORD WINAPI CheckPhyKeyState(LPVOID lpParam)
 				}
 				g_TimerId_LCtrl = SetTimer(NULL, 0, 500, TimerCallback_LCtrl);
 			}
-			if (keystroke.code == SCANCODE_LWIN) {
-				phy_LWin_pressed = keystroke.state;
-				if (g_TimerId_LWin != 0) {
-					KillTimer(NULL, g_TimerId_LWin);
-				}
-				g_TimerId_LWin = SetTimer(NULL, 0, 500, TimerCallback_LWin);
-			}
+                        // 经过测试发现win的物理按键和虚拟按键的键码都一个样, 所以无法判断
+			// if (keystroke.code == SCANCODE_LWIN) {
+			// 	phy_LWin_pressed = keystroke.state;
+			// 	if (g_TimerId_LWin != 0) {
+			// 		KillTimer(NULL, g_TimerId_LWin);
+			// 	}
+			// 	g_TimerId_LWin = SetTimer(NULL, 0, 500, TimerCallback_LWin);
+			// }
 		}
 
 		interception_send(context, device, &stroke, 1);
@@ -309,11 +310,11 @@ int main()
 		printf("线程创建失败\n");
 		return 1;
 	}
-	g_ThreadHandle_LWin = CreateThread(NULL, 0, releaseLWinKeyState, NULL, 0, NULL);
-	if (g_ThreadHandle_LWin == NULL) {
-		printf("线程创建失败\n");
-		return 1;
-	}
+	// g_ThreadHandle_LWin = CreateThread(NULL, 0, releaseLWinKeyState, NULL, 0, NULL);
+	// if (g_ThreadHandle_LWin == NULL) {
+	// 	printf("线程创建失败\n");
+	// 	return 1;
+	// }
 
 	// 设置退出标志
 	g_ExitThread = TRUE;
@@ -323,14 +324,14 @@ int main()
 	WaitForSingleObject(g_ThreadHandle_LAlt, INFINITE);
 	WaitForSingleObject(g_ThreadHandle_LCtrl, INFINITE);
 	WaitForSingleObject(g_ThreadHandle_LShift, INFINITE);
-	WaitForSingleObject(g_ThreadHandle_LWin, INFINITE);
+	// WaitForSingleObject(g_ThreadHandle_LWin, INFINITE);
 
 	// 关闭线程句柄
 	CloseHandle(g_ThreadHandle);
 	CloseHandle(g_ThreadHandle_LAlt);
 	CloseHandle(g_ThreadHandle_LCtrl);
 	CloseHandle(g_ThreadHandle_LShift);
-	CloseHandle(g_ThreadHandle_LWin);
+	// CloseHandle(g_ThreadHandle_LWin);
 
 	return 0;
 }
