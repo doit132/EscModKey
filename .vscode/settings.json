@@ -88,4 +88,42 @@
     "cmake.configureOnOpen": false,
     "cmake.generator": "MinGW Makefiles",
     "cmake.sourceDirectory": "D:/Users/Documents/MyData/CodeLearning/c_cpp/EscModKey_vscode/projects/EscModKey",
+    // 开启更加详细的补全结果
+    "ccls.completion.detailedLabel": true,
+    "ccls.launch.command": "/usr/bin/ccls",
+    "ccls.misc.compilationDatabaseDirectory": "${workspaceFolder}",
+    "ccls.cache.directory": ".cache/ccls-cache",
+    // ccls 基于语义的高亮
+    "ccls.highlight.macro.face": [
+        "enabled",
+        "fontWeight: bolder"
+    ],
+    "ccls.highlight.macro.colors": [
+        "#d09e70",
+    ],
+    "ccls.highlight.enum.face": [
+        "enabled",
+        // "fontWeight: bolder",
+        "color:#62bac5"
+    ],
+    "ccls.highlight.variable.face": [
+        "enabled",
+        "fontWeight: bord"
+    ],
+    "ccls.highlight.variable.colors": [
+        "#db645d",
+    ],
+    "ccls.highlight.type.face": [
+        "enabled",
+        // "fontWeight: bolder"
+    ],
+    "ccls.highlight.type.colors": [
+        "#e1b661",
+    ],
+    "ccls.highlight.static.face": [
+        "fontStyle: normal"
+    ],
+    "ccls.highlight.member.face": [
+        "fontStyle: normal"
+    ],
 }

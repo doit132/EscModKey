@@ -64,5 +64,74 @@
         "build": true,
         ".cache": true,
     },
-    
+    // 关掉 c/c++ 插件中与 ccls 相同的功能, 不然补全候选项就会出现重复项
+    // 因为 ccls 扩展不提供任何调试器集成, 用以下设置来禁用 vscode-cpptools 的编辑器支持, 同时仍然保留调试器功能
+    "C_Cpp.autocomplete": "disabled",
+    "C_Cpp.formatting": "disabled",
+    "C_Cpp.errorSquiggles": "disabled",
+    "C_Cpp.intelliSenseEngine": "disabled",
+    // clangd 插件配置
+    "clangd.detectExtensionConflicts": true,
+    "clangd.arguments": [
+        // compile-commands.json 文件所在路径
+        "--compile-commands-dir=${workspaceFolder}/",
+        // 如果没有加入头文件, 而使用了相关函数, 那么会自动插入头文件, 设置成 never 那么不自动插入
+        "--header-insertion=never",
+        // 同时开启的任务数量
+        "-j=12",
+        // 全局补全 (输入时弹出的建议将会提供 CMakeLists.txt 里配置的所有文件中可能的符号，会自动补充头文件)
+        "--all-scopes-completion",
+        // 输入建议中，已包含头文件的项与还未包含头文件的项会以圆点加以区分
+        "--header-insertion-decorators",
+        // 更详细的补全内容
+        "--completion-style=detailed",
+        // 在后台自动分析文件 (基于 complie_commands)
+        "--background-index",
+        // 对所编写代码进行一个静态分析, 查查有什么错误, 不规范的写法
+        "--clang-tidy",
+        "--clang-tidy-checks=performance-*,bugprone-*",
+        // pch 优化的位置
+        "--pch-storage=disk",
+        // 让 Clangd 生成更详细的日志
+        "--log=verbose",
+    ],
+    "clangd.serverCompletionRanking": true,
+    // 开启更加详细的补全结果
+    "ccls.completion.detailedLabel": true,
+    "ccls.launch.command": "/usr/bin/ccls",
+    "ccls.misc.compilationDatabaseDirectory": "${workspaceFolder}",
+    "ccls.cache.directory": ".cache/ccls-cache",
+    // ccls 基于语义的高亮
+    "ccls.highlight.macro.face": [
+        "enabled",
+        "fontWeight: bolder"
+    ],
+    "ccls.highlight.macro.colors": [
+        "#d09e70",
+    ],
+    "ccls.highlight.enum.face": [
+        "enabled",
+        // "fontWeight: bolder",
+        "color:#62bac5"
+    ],
+    "ccls.highlight.variable.face": [
+        "enabled",
+        "fontWeight: bord"
+    ],
+    "ccls.highlight.variable.colors": [
+        "#db645d",
+    ],
+    "ccls.highlight.type.face": [
+        "enabled",
+        // "fontWeight: bolder"
+    ],
+    "ccls.highlight.type.colors": [
+        "#e1b661",
+    ],
+    "ccls.highlight.static.face": [
+        "fontStyle: normal"
+    ],
+    "ccls.highlight.member.face": [
+        "fontStyle: normal"
+    ],
 }
